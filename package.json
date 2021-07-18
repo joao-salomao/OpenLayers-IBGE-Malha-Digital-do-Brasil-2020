@@ -1,0 +1,18 @@
+{
+  "name": "ol-rollup",
+  "version": "1.0.0",
+  "description": "Example using OpenLayers with Rollup",
+  "scripts": {
+    "start": "rollup --config rollup.config.js --watch",
+    "build": "rollup --config rollup.config.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "rollup": "^2.52.7",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "ol": "^6.5.0"
+  }
+}
