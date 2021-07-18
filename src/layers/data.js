@@ -80,34 +80,12 @@ const styleFunction = function (feature) {
 
 const uf2020Layer = new VectorLayer({
     source: new VectorSource({
-        features: new GeoJSON().readFeatures(   ),
+        format: new GeoJSON(),
+        url: '../data/SC_RG_Imediatas_2020.json'
     }),
     style: styleFunction,
-});
+})
 
-import 'ol/ol.css';
-import GeoJSON from 'ol/format/GeoJSON';
-import Map from 'ol/Map';
-import VectorLayer from 'ol/layer/Vector';
-import VectorSource from 'ol/source/Vector';
-import View from 'ol/View';
-
-new Map({
-  target: 'map-container',
-  layers: [
-    new VectorLayer({
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: './data/countries.json'
-      })
-    })
-  ],
-  view: new View({
-    center: [0, 0],
-    zoom: 2
-  })
-});
-
-export {
+export default [
     uf2020Layer
-}
+]

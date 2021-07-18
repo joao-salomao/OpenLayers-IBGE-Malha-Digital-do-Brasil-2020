@@ -2,13 +2,14 @@ import json from "@rollup/plugin-json";
 import cjs from '@rollup/plugin-commonjs';
 import node from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
+import copy from "rollup-plugin-copy-assets";
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
   input: './src/main.js',
   output: [
-    { file: './public/js/bundle.js', format: 'iife', sourcemap: true }
+    { file: './public/js/bundle.js', format: 'iife', sourcemap: false }
   ],
   plugins: [
     node(),

@@ -1,15 +1,12 @@
 import { Map, View } from 'ol';
-import TileLayer from 'ol/layer/Tile';
-import XYZ from 'ol/source/XYZ';
+import dataLayers from './layers/data'
+import tileLayer from './layers/tile';
 
 new Map({
   target: 'map',
   layers: [
-    new TileLayer({
-      source: new XYZ({
-        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      })
-    })
+    tileLayer,
+    ...dataLayers
   ],
   view: new View({
     center: [0, 0],
