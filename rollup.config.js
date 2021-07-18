@@ -1,3 +1,4 @@
+import json from "@rollup/plugin-json";
 import cjs from '@rollup/plugin-commonjs';
 import node from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
@@ -12,6 +13,9 @@ export default {
   plugins: [
     node(),
     cjs(),
+    json({
+      compact: true,
+    }),
     production && terser()
   ],
   onwarn: function (warning, superOnWarn) {
