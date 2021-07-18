@@ -1,20 +1,13 @@
-# OpenLayers + Rollup
+Requisitos:
 
-This example demonstrates how the [`ol` package](https://www.npmjs.com/package/ol) can be used with Rollup.
+node 8+
 
-Clone the project.
+Passo a passo para a execução do projeto:
 
-    git clone git@github.com:openlayers/ol-rollup.git
+1. Instale as dependências:
+   npm install
 
-Install the project dependencies.
+2. Execute o servidor web:
+   npm run serve
 
-    cd ol-rollup
-    npm install
-
-Create a bundle for the browser.
-
-    npm run build
-
-Open `index.html` to see the result.
-
-    open index.html
+3. Acesse o link mostrado no terminal.
