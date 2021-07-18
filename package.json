@@ -4,12 +4,15 @@
   "description": "Example using OpenLayers with Rollup",
   "scripts": {
     "start": "rollup --config rollup.config.js --watch",
-    "build": "rollup --config rollup.config.js"
+    "build": "rollup --config rollup.config.js",
+    "preserve": "npm run build",
+    "serve": "http-server public" 
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "http-server": "^0.12.3",
     "rollup": "^2.52.7",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-terser": "^7.0.2"
