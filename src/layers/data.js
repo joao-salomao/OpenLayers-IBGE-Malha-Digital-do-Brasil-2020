@@ -1,18 +1,9 @@
-// import SC_UF_2020 from '../data/SC_UF_2020.json'
-// import SC_Municipios_2020 from '../data/SC_Municipios_2020.json'
-// import SC_Mesorregioes_2020 from '../data/SC_Mesorregioes_2020.json'
-import SC_RG_Imediatas_2020 from '../data/SC_RG_Imediatas_2020.json'
-// import SC_Microrregioes_2020 from '../data/SC_Microrregioes_2020.json'
-// import SC_RG_Intermediarias_2020 from '../data/SC_RG_Intermediarias_2020.json'
 import GeoJSON from 'ol/format/GeoJSON';
 import { Vector as VectorSource } from 'ol/source';
 import { Vector as VectorLayer } from 'ol/layer';
 import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style';
 
 const styles = {
-    // 'Point': new Style({
-    //     image: image,
-    // }),
     'LineString': new Style({
         stroke: new Stroke({
             color: 'green',
@@ -25,9 +16,6 @@ const styles = {
             width: 1,
         }),
     }),
-    // 'MultiPoint': new Style({
-    //     image: image,
-    // }),
     'MultiPolygon': new Style({
         stroke: new Stroke({
             color: 'yellow',
@@ -78,7 +66,15 @@ const styleFunction = function (feature) {
     return styles[feature.getGeometry().getType()];
 };
 
-const uf2020Layer = new VectorLayer({
+const SC_UF_2020 = new VectorLayer({
+    source: new VectorSource({
+        format: new GeoJSON(),
+        url: '../data/SC_UF_2020.json'
+    }),
+    style: styleFunction,
+})
+
+const SC_RG_IMEDIATAS_2020 = new VectorLayer({
     source: new VectorSource({
         format: new GeoJSON(),
         url: '../data/SC_RG_Imediatas_2020.json'
@@ -86,6 +82,44 @@ const uf2020Layer = new VectorLayer({
     style: styleFunction,
 })
 
+const SC_MUNICIPIOS_2020 = new VectorLayer({
+    source: new VectorSource({
+        format: new GeoJSON(),
+        url: '../data/SC_Municipios_2020.json'
+    }),
+    style: styleFunction,
+})
+
+const SC_MESORREGIOES_2020 = new VectorLayer({
+    source: new VectorSource({
+        format: new GeoJSON(),
+        url: '../data/SC_Mesorregioes_2020.json'
+    }),
+    style: styleFunction,
+})
+
+const SC_MICRORREGIOES_2020 = new VectorLayer({
+    source: new VectorSource({
+        format: new GeoJSON(),
+        url: '../data/SC_Microrregioes_2020.json'
+    }),
+    style: styleFunction,
+})
+
+const SC_RG_INTERMEDIARIAS_2020 = new VectorLayer({
+    source: new VectorSource({
+        format: new GeoJSON(),
+        url: '../data/SC_RG_Intermediarias_2020.json'
+    }),
+    style: styleFunction,
+})
+
+
 export default [
-    uf2020Layer
+    SC_UF_2020,
+    SC_RG_IMEDIATAS_2020,
+    SC_MUNICIPIOS_2020,
+    SC_MESORREGIOES_2020,
+    SC_MICRORREGIOES_2020,
+    SC_RG_INTERMEDIARIAS_2020
 ]
