@@ -2,7 +2,7 @@ import json from "@rollup/plugin-json";
 import cjs from '@rollup/plugin-commonjs';
 import node from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import copy from "rollup-plugin-copy-assets";
+import copy from 'rollup-plugin-copy'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,6 +16,11 @@ export default {
     cjs(),
     json({
       compact: true,
+    }),
+    copy({
+      targets: [
+        { src: 'src/data/**/*', dest: 'public/data' }
+      ]
     }),
     production && terser()
   ],
